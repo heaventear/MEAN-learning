@@ -1,0 +1,47 @@
+<ol class="breadcrumb">
+	<li><a href="#/home">首页</a></li>
+	<li><a href="#/questionList">试题列表</a></li>
+	<li class="active">编辑试题</li>
+</ol>
+<div class="row">
+    <div class="col-sm-8">
+        <form class="form-horizontal">
+			<div class="panel panel-info">
+			    <div class="panel-heading">试题信息</div>
+			    <div class="panel-body">
+			        <div class="form-group">
+			            <label class="col-sm-2 control-label">题型:</label>
+			            <div class="col-sm-3">
+			                <select class="form-control" ng-model="formData.qtype" ng-options="t as t|qtypestr for t in qtypes" ng-change="changeTpl()"></select>
+			            </div>
+			        </div>
+			        <div class="form-group">
+			            <label class="col-sm-2 control-label">名称:</label>
+			            <div class="col-sm-8">
+			                <input type="text" class="form-control" ng-model="formData.name">
+			            </div>
+			        </div>
+			        <div ui-view="editArea"></div>
+			        
+			    </div>
+			</div>
+			<div class="form-group" style="margin:80px 0">
+			    <label class="col-sm-2 control-label">&nbsp;</label>
+			    <div class="col-sm-3">
+			        <button class="btn btn-block btn-primary" ng-click="submit()">提交</button>
+			    </div>
+			    <div class="col-sm-3">
+			        <a href="#/questionList" class="btn btn-default btn-block">取消<a/>
+			    </div>
+			</div>
+        </form>
+    </div>
+    <div class="previewarea col-sm-4">
+	    <div class="panel panel-info">
+	        <div class="panel-heading">试题预览</div>
+	        <div class="panel-body" style="max-height: 500px; overflow-y: auto;">
+	        	<div ui-view="previewArea"></div>
+	        </div>
+	    </div>
+	</div>
+</div>
